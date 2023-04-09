@@ -16,6 +16,7 @@
 - [netcraft.com](https://searchdns.netcraft.com)
 - [whois.com](https://www.whois.com/whois/)(/CLI)
 - [nslookup.io](https://www.nslookup.io/)(/CLI)
+- [dnsdumper.com](https://dnsdumpster.com/)
 - [Dig](https://phoenixnap.com/kb/linux-dig-command-examples)
 - [Fierce](https://github.com/mschwager/fierce)
 - [DNSRecon](https://www.kali.org/tools/dnsrecon/)
@@ -51,3 +52,4 @@
 
 ### Misc Tools:
 - [TheHarvester](https://github.com/laramies/theHarvester)
+- [WPscan](https://github.com/wpscanteam/wpscan)

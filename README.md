@@ -3,7 +3,6 @@
 ### Misc Sites:
 - [archive.org](https://archive.org)
 - [shodan.io](https://developer.shodan.io)
-- [crt.sh](https://crt.sh)
 ---
 
 ### DNS Enumeration:
@@ -25,12 +24,14 @@
 ---
 
 ### Subdomain Enumeration:
+- [crt.sh](https://crt.sh)
 - [Amass](https://github.com/owasp-amass/amass)
 - [Sublist3r](https://github.com/aboul3la/Sublist3r)
 - [Subfinder](https://github.com/projectdiscovery/subfinder)
 - [Dmitry](https://www.kali.org/tools/dmitry/)
 - [Assetfinder](https://github.com/tomnomnom/assetfinder)
 - [Httpx](https://github.com/projectdiscovery/httpx)
+- [Fuff](https://github.com/ffuf/ffuf)(Fuzzing)
 - [EyeWitness](https://github.com/FortyNorthSecurity/EyeWitness)
 - [Aquatone](https://github.com/michenriksen/aquatone)
 ---

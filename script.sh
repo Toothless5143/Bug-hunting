@@ -8,7 +8,7 @@ function subenum(){
 	cat $1_uniq | dnsgen - | massdns -r /usr/share/wordlists/resolvers.txt -t A -o S -w massdns.txt # finding dns resolved ip of every single subdomains we found so far.
   }
   
-function finder(){
+function keysfinder(){
   python ~/Tools/SecretFinder/SecretFinder.py -i unique.txt -o secretfinder.txt
   }
   

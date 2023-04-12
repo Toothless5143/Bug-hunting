@@ -12,7 +12,10 @@ function subenum(){
   }
   
 function keysfinder(){
-  python ~/Tools/SecretFinder/SecretFinder.py -i unique.txt -o secretfinder.txt
+	cat unique.txt | waybackurls | tee URLs.txt
+	cat URLs.txt | grep "\.js" | tee js.txt
+	#httpx -l uniq.txt --status-code -fc 404 -o testing
+  	python ~/Tools/SecretFinder/SecretFinder.py -i js.txt -o secretfinder.txt
   }
   
   

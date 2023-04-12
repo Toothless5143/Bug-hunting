@@ -1,4 +1,6 @@
-# A bash script to perform automated things during a bug bounty program.
+# A bash script to perform automated things during a bug hunting.
+
+# A function to gather all the subdomains we need to do further analysis.
 function subenum(){
 	subfinder -d $1 -all | tee $1.txt # using subfinder to get subdomains.
 	assetfinder --subs-only $1 | tee -a $1.txt # using assetfinder to get subdomains and appending the previous file.

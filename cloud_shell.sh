@@ -9,7 +9,8 @@ assetfinder --subs-only $domain | tee assetfinder.txt
 python ~/Tools/ctfr/ctfr.py -d $domain -o ctfr.txt
 
 # Run amass command and terminate after 30 minutes
-( amass enum -d $domain | anew $domain.txt ) & sleep 1800 && pkill -f "amass enum -d $domain"
+( amass enum -d $domain | tee amass.txt ) & sleep 1800 && kill $(pgrep -f "amass enum -d $domain")
+wait
 
 cat * | sort -u | uniq | tee $domain.txt
 

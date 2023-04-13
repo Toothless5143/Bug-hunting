@@ -15,11 +15,14 @@ function jsfinder(){
 	cat up.txt | awk '{print $1}' | sed 's/https\?:\/\///g' > alivesubdomains.txt
 	cat livesubdomains.txt | waybackurls | tee waybackurls.txt
 	cat waybackurls.txt | grep "\.js" | tee wayback_js.txt
-	cat unique.txt | httpx -silent | subjs | tee subjs.txt
-	python ~/Tools/ParamSpider/paramspider.py 
 	
+	cat unique.txt | httpx -silent | subjs | tee subjs.txt
+
 	#anew tool
 	cat js.txt | xargs -I@ sh -c 'python ~/Tools/SecretFinder/SecretFinder.py -i @'
+
+	python ~/Tools/ParamSpider/paramspider.py -d gap.com  
+	
   }
   
   

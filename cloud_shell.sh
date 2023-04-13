@@ -16,23 +16,23 @@ cd ~/
 pip3 install dnsgen
 
 # Commands execution
-subfinder -d $1 -all | anew $1.txt
-assetfinder --subs-only $1 | anew $1.txt
-python ~/Tools/ctfr/ctfr.py -d $1 | anew $1.txt
-amass enum -d $1 | anew $1.txt
-cat  * | sort -u | uniq  | tee $1_unique.txt
+subfinder -d $domain -all | anew $domain.txt
+assetfinder --subs-only $1 | anew $domain.txt
+python ~/Tools/ctfr/ctfr.py -d $1 | anew $domain.txt
+amass enum -d $domain | anew $domain.txt
+cat  * | sort -u | uniq  | tee $domain_unique.txt
 
 # Data processing
-cat $1.txt | httpx -silent -fc 404 | awk -F/ '{print $3}' | tee $1_live.txt
+cat $domain.txt | httpx -silent -fc 404 | awk -F/ '{print $3}' | tee $domain_live.txt
 
-cat $1_live.txt | httpx -silent | subjs | tee $1_subjs.txt
+cat $domain_live.txt | httpx -silent | subjs | tee $domain_subjs.txt
 
-cat $1_live.txt | waybackurls | tee $1_waybackurls.txt
-cat $1_waybackurls.txt | grep "\.js" | tee $1_waybackurls_js.txt
-cat $1_waybackurls_js.txt | httpx -silent -fc 404 | tee $1_waybackurls_live_js.txt
+cat $domain_live.txt | waybackurls | tee $domain_waybackurls.txt
+cat $domain_waybackurls.txt | grep "\.js" | tee $domain_waybackurls_js.txt
+cat $domain_waybackurls_js.txt | httpx -silent -fc 404 | tee $domain_waybackurls_live_js.txt
 
 # Removing useless files
-rm -rf $1_waybackurls.txt $1_waybackurls_js.txt
+rm -rf $domain_waybackurls.txt $domain_waybackurls_js.txt
 
 
 

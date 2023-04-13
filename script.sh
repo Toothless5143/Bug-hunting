@@ -2,8 +2,8 @@
 
 # A function to gather all the subdomains we need to do further analysis.
 function subenum(){
-	subfinder -d $1 -all | tee subfinder.txt # using subfinder to get subdomains.
-	assetfinder --subs-only $1 | tee assetfinder.txt # using assetfinder to get subdomains.
+	subfinder -d $1 -all | anew $1.txt # using subfinder to get subdomains.
+	assetfinder --subs-only $1 | anew $1.txt # using assetfinder to get subdomains.
 	amass enum -d $1  | tee amass.txt  # using amass tool to get subdomains.
 	python ~/Tools/ctfr/ctfr.py -d $1 | tee ctfr.txt # using ctfr tool to get subdomains.
 	cat  * | sort -u | uniq  | tee unique.txt # sorting 4 of the files and creating a new file only containing unique subdomains.

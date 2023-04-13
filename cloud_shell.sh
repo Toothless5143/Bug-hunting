@@ -18,7 +18,7 @@ pip3 install dnsgen
 # Commands execution
 subfinder -d $domain -all | anew $domain.txt
 assetfinder --subs-only $1 | anew $domain.txt
-python ~/Tools/ctfr/ctfr.py -d $1 | anew $domain.txt
+python ~/Tools/ctfr/ctfr.py -d $domain | anew $domain.txt
 amass enum -d $domain | anew $domain.txt
 cat  * | sort -u | uniq  | tee $domain_unique.txt
 

@@ -10,6 +10,7 @@ python ~/Tools/ctfr/ctfr.py -d $domain -o ctfr.txt
 
 ffuf -w /usr/share/wordlists/SecLists-master/Discovery/DNS/dns-Jhaddix.txt -u http://FUZZ.$domain -o fuzzing.txt
 cat ffuf.txt | jq -r '.results[].url' | sed 's/.*\///' | tee ffuf.txt
+rm -rf fuzzing.txt
 
 # Run amass command and terminate after 30 minutes
 ( amass enum -d $domain | tee amass.txt ) & sleep 1800 && kill $(pgrep -f "amass enum -d $domain")

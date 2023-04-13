@@ -17,7 +17,7 @@ function keysfinder(){
 	cat upsub.txt | waybackurls | tee URL.txt
 	cat URL.txt | grep "\.js" | tee js.txt
 	#httpx -l uniq.txt --status-code -fc 404 -o testing
-  	python ~/Tools/SecretFinder/SecretFinder.py -i js.txt -o secretfinder.txt
+  	cat js.txt | xargs -I@ sh -c 'python ~/Tools/SecretFinder/SecretFinder.py -i @'
   }
   
   

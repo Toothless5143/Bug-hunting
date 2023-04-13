@@ -1,26 +1,17 @@
 #!/bin/bash
 
-# Installing the tools we need
-sudo apt install golang
-go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
-go install -v github.com/tomnomnom/anew@latest
-go install github.com/tomnomnom/assetfinder@latest
-go install -v github.com/owasp-amass/amass/v3/...@master
-go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
-go install github.com/tomnomnom/waybackurls@latest
-
-cd ~/Tools/ctfr
-pip3 install -r requirements.txt
-cd ~/
-
-pip3 install dnsgen
+# Prompt user for domain name
+read -p "Enter the domain name: " domain
 
 # Commands execution
-subfinder -d $domain -all | anew $domain.txt
-assetfinder --subs-only $domain | anew $domain.txt
-python ~/Tools/ctfr/ctfr.py -d $domain | anew $domain.txt
-amass enum -d $domain | anew $domain.txt
-cat  * | sort -u | uniq  | tee $domain_unique.txt
+subfinder -d $domain -all | tee subfinder.txt
+assetfinder --subs-only $domain | tee assetfinder.txt
+python ~/Tools/ctfr/ctfr.py -d $domain -o ctfr.txt
+
+# Run amass command and terminate after 30 minutes
+( amass enum -d $domain | anew $domain.txt ) & sleep 1800 && pkill -f "amass enum -d $domain"
+
+cat * | sort -u | uniq | tee $domain.txt
 
 # Data processing
 cat $domain.txt | httpx -silent -fc 404 | awk -F/ '{print $3}' | tee $domain_live.txt

@@ -13,8 +13,8 @@ function subenum(){
   
 function keysfinder(){
 	cat unique.txt | httpx --status-code -fc 404 | tee up.txt
-	cat up.txt | grep -oP 'https?://\K[^/]+(?=/|$)' > upsubdomains.txt
-	cat upsubdomains.txt | waybackurls | tee URL.txt
+	cat up.txt | awk '{print $1}' | sed 's/https\?:\/\///g' > upsub.txt
+	cat upsub.txt | waybackurls | tee URL.txt
 	cat URL.txt | grep "\.js" | tee js.txt
 	#httpx -l uniq.txt --status-code -fc 404 -o testing
   	python ~/Tools/SecretFinder/SecretFinder.py -i js.txt -o secretfinder.txt

@@ -11,10 +11,11 @@ function subenum(){
   }
   
 function jsfinder(){
-	cat unique.txt | httpx --status-code -fc 404 | tee up.txt
-	cat up.txt | awk '{print $1}' | sed 's/https\?:\/\///g' > alivesubdomains.txt
-	cat livesubdomains.txt | waybackurls | tee waybackurls.txt
-	cat waybackurls.txt | grep "\.js" | tee wayback_js.txt
+	cat unique.txt | httpx -silent -fc 404 | awk -F/ '{print $3}' | tee alivesubdomains.txt
+	cat alivesubdomains.txt | waybackurls | tee waybackurls.txt
+	
+	cat waybackurls.txt | grep "\.js" | tee js.txt
+	cat url.txt | httpx --status-code -fc 404 | tee waybackurl_js.txt
 	
 	cat unique.txt | httpx -silent | subjs | tee subjs.txt
 

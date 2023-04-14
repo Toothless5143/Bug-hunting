@@ -19,19 +19,18 @@ wait $!
 # Processing subdomains
 cat fuzzing.txt | jq -r '.results[].url' | sed 's/.*\///' | tee ffuf.txt
 rm -rf fuzzing.txt
-cat * | sort -u | uniq | tee $domain.txt
+cat * | sort -u | uniq | tee subdomains.txt
 rm -rf subfinder.txt assetfinder.txt ctfr.txt amass.txt ffuf.txt
 
 # Data processing and generating urls from the scrapped data
-cat $domain.txt | httpx -silent -fc 404 | awk -F/ '{print $3}' | tee $domain.live.txt
+cat subdomains.txt | httpx -silent -fc 404 | awk -F/ '{print $3}' | tee subdomains_live.txt
 
-cat $domain.live.txt | httpx -silent | subjs | tee $domain.subjs.txt
+cat subdomains_live.txt | httpx -silent | subjs | tee subjs.txt
 
-cat $domain.live.txt | waybackurls | tee $domain.waybackurls-dead.txt
-cat $domain.waybackurls-dead.txt | httpx -silent -fc 404 | tee $domain.waybackurls.txt
-rm -rf $domain.waybackurls-dead.txt
-cat $domain.waybackurls.txt | grep "\.js" | tee $domain.waybackurls-js.txt
+cat subdomains_live.txt | waybackurls | tee waybackurls_dead.txt
+cat waybackurls_dead.txt | httpx -silent -fc 404 | tee waybackurls.txt
+rm -rf waybackurls_dead.txt
+cat waybackurls.txt | grep "\.js" | tee waybackurls_js.txt
 
-# Beta version
-# Run paramspider for each domain in $domain_live.txt
-cat $domain_live.txt | xargs -I@ sh -c 'python ~/Tools/ParamSpider/paramspider.py -d @ >> paramspider_output.txt'
+# Run paramspider for each domain in subdomains_live.txt
+cat subdomains_live.txt | xargs -I@ sh -c 'python ~/Tools/ParamSpider/paramspider.py -d @'

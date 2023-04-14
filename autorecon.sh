@@ -22,14 +22,14 @@ rm -rf fuzzing.txt
 cat * | sort -u | uniq | tee $domain.txt
 
 # Data processing and generating urls from the scrapped data
-cat $domain.txt | httpx -silent -fc 404 | awk -F/ '{print $3}' | tee $domain_live.txt
+cat $domain.txt | httpx -silent -fc 404 | awk -F/ '{print $3}' | tee $domain.live.txt
 
-cat $domain_live.txt | httpx -silent | subjs | tee $domain_subjs.txt
+cat $domain.live.txt | httpx -silent | subjs | tee $domain.subjs.txt
 
-cat $domain_live.txt | waybackurls | tee $domain_waybackurls_dead.txt
-cat $domain_waybackurls_dead.txt | httpx -silent -fc 404 | tee $domain_waybackurls.txt
-rm -rf $domain_waybackurls_dead.txt
-cat $domain_waybackurls.txt | grep "\.js" | tee $domain_waybackurls_js.txt
+cat $domain.live.txt | waybackurls | tee $domain.waybackurls-dead.txt
+cat $domain.waybackurls-dead.txt | httpx -silent -fc 404 | tee $domain.waybackurls.txt
+rm -rf $domain.waybackurls-dead.txt
+cat $domain.waybackurls.txt | grep "\.js" | tee $domain.waybackurls-js.txt
 
 # Beta version
 # Run paramspider for each domain in $domain_live.txt

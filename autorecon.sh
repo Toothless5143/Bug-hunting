@@ -25,11 +25,12 @@ rm -rf subfinder.txt assetfinder.txt ctfr.txt amass.txt ffuf.txt
 # Data processing and generating urls from the scrapped data
 cat subdomains.txt | httpx -silent -fc 404 | awk -F/ '{print $3}' | tee subdomains_live.txt
 
-cat subdomains_live.txt | httpx -silent | subjs | tee subjs.txt
-
 cat subdomains_live.txt | waybackurls | tee waybackurls_dead.txt
 cat waybackurls_dead.txt | httpx -silent -fc 404 | tee waybackurls.txt
 rm -rf waybackurls_dead.txt
+
+# Gathering js files for source code analysis
+cat subdomains_live.txt | httpx -silent | subjs | tee subjs.txt
 cat waybackurls.txt | grep "\.js" | tee waybackurls_js.txt
 
 # Run paramspider for each domain in subdomains_live.txt

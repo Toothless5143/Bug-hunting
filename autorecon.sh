@@ -11,7 +11,8 @@ python ~/Tools/ctfr/ctfr.py -d $domain -o ctfr.txt
 # Run amass and ffuf commands in the background
 ( amass enum -d $domain > amass.txt ) &
 amass_pid=$!
-( ffuf -w /usr/share/wordlists/SecLists-master/Discovery/DNS/dns-Jhaddix.txt -u http://FUZZ.$domain -o fuzzing.txt && kill $amass_pid ) &
+( ffuf -w /usr/share/wordlists/SecLists-master/Discovery/DNS/subdomains-top1million-110000.txt -u http://FUZZ.$domain -o fuzzing.txt && kill $amass_pid ) &
+# also we can use the wordlist 'dns-Jhaddix.txt' for deep recon but its gonna take ages to complete the whole process
 
 # Wait for ffuf to finish
 wait $!

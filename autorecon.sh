@@ -35,3 +35,4 @@ cat waybackurls.txt | grep "\.js" | tee waybackurls_js.txt
 
 # Run paramspider for each domain in subdomains_live.txt
 cat subdomains_live.txt | xargs -I@ sh -c 'python ~/Tools/ParamSpider/paramspider.py -d @'
+arjun

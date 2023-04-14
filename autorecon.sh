@@ -3,6 +3,10 @@
 # Prompt user for domain name
 read -p "Enter the domain name: " domain
 
+# Creating a directory to store all of the files
+mkdir $domain
+cd $domain
+
 # Commands execution
 subfinder -d $domain -all | tee subfinder.txt
 assetfinder --subs-only $domain | tee assetfinder.txt

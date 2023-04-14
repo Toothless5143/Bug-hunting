@@ -20,6 +20,7 @@ wait $!
 cat fuzzing.txt | jq -r '.results[].url' | sed 's/.*\///' | tee ffuf.txt
 rm -rf fuzzing.txt
 cat * | sort -u | uniq | tee $domain.txt
+rm -rf subfinder.txt assetfinder.txt ctfr.txt amass.txt ffuf.txt
 
 # Data processing and generating urls from the scrapped data
 cat $domain.txt | httpx -silent -fc 404 | awk -F/ '{print $3}' | tee $domain.live.txt

@@ -28,7 +28,7 @@ cat * | sort -u | uniq | tee subdomains.txt
 rm -rf subfinder.txt assetfinder.txt ctfr.txt amass.txt ffuf.txt
 
 # Looking if there are any possibilties of subdomain takeover
-subzy run --targets subdomains.txt | tee subzy.txt
+subzy run --targets subdomains.txt --hide_fails | tee subzy.txt
 
 # Data processing and generating urls from the scrapped data
 cat subdomains.txt | httpx -silent -fc 404 | awk -F/ '{print $3}' | tee subdomains_live.txt

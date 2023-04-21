@@ -41,5 +41,8 @@ rm -rf waybackurls_dead.txt
 cat subdomains_live.txt | httpx -silent | subjs | tee subjs.txt
 cat waybackurls.txt | grep "\.js" | tee waybackurls_js.txt
 
+# Getting screenshots
+eyewitness -f subdomains_live.txt --web
+
 # Run paramspider for each domain in subdomains_live.txt
 cat subdomains_live.txt | xargs -I@ sh -c 'python ~/Tools/ParamSpider/paramspider.py -d @'

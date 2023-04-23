@@ -44,6 +44,10 @@
 - [Dirb](https://www.kali.org/tools/dirb/)
 ---
 
+### Buckets finding:
+- [GrayHatWarfare](https://buckets.grayhatwarfare.com/)
+---
+
 ### Google Dorking:
 - [Exploit-db](https://www.exploit-db.com/google-hacking-database)
 - [CXsecurity](https://cxsecurity.com/dorks)

@@ -1,0 +1,22 @@
+# Bug hunting methodology by Toothless:
+
+- [ ] Google Dorking
+- [ ] GitHub Recon
+- [ ] Buckets Finding(If any available)
+---
+- [ ] Subdomain Enum
+- [ ] Subdomain Takeover(If any available)
+- [ ] Finding Live Subdomains
+---
+- [ ] Resolving IP Addresses
+- [ ] Service Enum
+---
+- [ ] Finding URLs using waybackmachine
+- [ ] Finding JS files
+- [ ] Capturing screenshots
+- [ ] Finding URL parameters
+---
+- [ ] Directory Brute Forcing
+- [ ] Spidering The Site
+- [ ] Manually walking through the site
+- [ ] Loading up burp with every functionality

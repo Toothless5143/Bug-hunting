@@ -2,12 +2,13 @@
 
 - [ ] Google Dorking
 - [ ] GitHub Recon
-- [ ] Buckets Finding(If any available)
 ---
 - [ ] Subdomain Enum
 - [ ] Subdomain Takeover(If any available)
+- [ ] Buckets Finding(If any available)
 - [ ] Finding Live Subdomains
 ---
+- [ ] Screenshotting every subdomain
 - [ ] Resolving IP Addresses
 - [ ] Service Enum
 ---

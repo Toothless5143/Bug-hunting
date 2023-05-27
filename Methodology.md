@@ -8,14 +8,12 @@
 - [ ] Buckets Finding(If any available)
 - [ ] Finding Live Subdomains
 ---
-- [ ] Screenshotting every subdomain
-- [ ] Resolving IP Addresses
-- [ ] Service Enum
----
 - [ ] Finding URLs using waybackmachine
 - [ ] Finding JS files
 - [ ] Capturing screenshots
 - [ ] Finding URL parameters
+- [ ] Resolving IP Addresses
+- [ ] Service Enum
 ---
 - [ ] Directory Brute Forcing
 - [ ] Spidering The Site

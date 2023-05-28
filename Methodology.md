@@ -2,19 +2,19 @@
 
 - [ ] Google Dorking
 - [ ] GitHub Recon
-
+---
 - [ ] Subdomain Enum
 - [ ] Subdomain Takeover(If any available)
 - [ ] Buckets Finding(If any available)
 - [ ] Finding Live Subdomains
-
+---
 - [ ] Finding URLs using waybackmachine
 - [ ] Finding JS files
 - [ ] Capturing screenshots
 - [ ] Finding URL parameters
 - [ ] Resolving IP Addresses
 - [ ] Service Enum
-
+---
 - [ ] Directory Brute Forcing
 - [ ] Spidering The Site
 - [ ] Manually walking through the site

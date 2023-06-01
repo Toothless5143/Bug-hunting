@@ -4,7 +4,10 @@
 wget https://raw.githubusercontent.com/arkadiyt/bounty-targets-data/main/data/wildcards.txt
 
 # Remove asterisks (*) at the beginning of each line and exclude lines containing asterisks
-cat ~/wildcards.txt | sed 's/^*.//g' | grep -v '*' > wildcards_without_stars.txt
+cat wildcards.txt | sed 's/^*.//g' | grep -v '*' > wildcards_without_stars.txt
+
+# Remove the original wildcards.txt file
+rm -rf wildcards.txt
 
 # Enumerate subdomains for each domain in wildcards_without_stars.txt
 while IFS= read -r domain; do

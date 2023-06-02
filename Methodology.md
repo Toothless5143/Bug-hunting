@@ -9,19 +9,17 @@
 - [ ] OSINT
 - [ ] Pastebin
 
-### 3. Source Code Analysis
+### 3. Automation
+- [ ] URL Gathering (hakrawler, gau, waybackurls, paramspider)
 - [ ] Gathering js files (subjs, waybackurls)
 - [ ] Finding API Keys, Infos (secretfinder, js miner)
 - [ ] Linkfinder
-
-### 4. Scanning
-- [ ] Nmap Scan & Identify ports
-- [ ] Crawling/Spidering the site
-- [ ] Check for robots.txt and other files
 - [ ] Directory Fuzzing (dirb, gobuster, ffuf)
-- [ ] URL Gathering (hakrawler, gau, waybackurls, paramspider)
+- [ ] Crawling/Spidering the site
 
 ### 5. Manual
+- [ ] Nmap Scan & Identify ports
+- [ ] Check for robots.txt and other files
 - [ ] Use Wappalyzer to detect technology
 - [ ] Manually walking through the site
 - [ ] Loading up burp with every functionality

@@ -3,6 +3,11 @@
 ### 1. Recon
 - [ ] Run Script
 
+### 1.1 Massive Recon
+- [ ] Checking for subdomain takeover in a massive quantity
+- [ ] Gathering js files in a massive quantity (subjs, waybackurls)
+- [ ] Finding API Keys, Infos (secretfinder, js miner)
+
 ### 2. Information Gathering
 - [ ] Google Dorks
 - [ ] Github
@@ -11,8 +16,6 @@
 
 ### 3. Automation
 - [ ] URL Gathering (hakrawler, gau, waybackurls, paramspider)
-- [ ] Gathering js files (subjs, waybackurls)
-- [ ] Finding API Keys, Infos (secretfinder, js miner)
 - [ ] Linkfinder
 - [ ] Directory Fuzzing (dirb, gobuster, ffuf)
 - [ ] Crawling/Spidering the site

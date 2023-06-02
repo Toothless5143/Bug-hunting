@@ -7,6 +7,7 @@
 - [ ] Checking for subdomain takeover in a massive quantity
 - [ ] Gathering js files in a massive quantity (subjs, waybackurls)
 - [ ] Finding API Keys, Infos (secretfinder, js miner)
+- [ ] Linkfinder
 
 ### 2. Information Gathering
 - [ ] Google Dorks
@@ -16,7 +17,6 @@
 
 ### 3. Automation
 - [ ] URL Gathering (hakrawler, gau, waybackurls, paramspider)
-- [ ] Linkfinder
 - [ ] Directory Fuzzing (dirb, gobuster, ffuf)
 - [ ] Crawling/Spidering the site
 

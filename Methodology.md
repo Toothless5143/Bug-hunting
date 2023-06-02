@@ -11,37 +11,18 @@
 
 ### 3. Scanning
 - [ ] Nmap Scan & Identify ports
-- [ ] Crawling the site
+- [ ] Crawling/Spidering the site
 - [ ] Check for robots.txt and other files
 - [ ] Directory Fuzzing (dirb, gobuster, ffuf)
 - [ ] URL Gathering (hakrawler, gau, waybackurls, paramspider)
-- [ ] Use Wappalyzer to detect technology
 
 ### 4. Source Code Analysis
 - [ ] Gathering js files (subjs, waybackurls)
 - [ ] Finding API Keys, Infos (secretfinder, js miner)
 - [ ] Linkfinder
 
-### 5. 
-
-
-
-
-
----
-- [ ] Subdomain Enum
-- [ ] Subdomain Takeover(If any available)
-- [ ] Buckets Finding(If any available)
-- [ ] Finding Live Subdomains
----
-- [ ] Finding URLs using waybackmachine
-- [ ] Finding JS files
-- [ ] Capturing screenshots
-- [ ] Finding URL parameters
-- [ ] Resolving IP Addresses
-- [ ] Service Enum
----
-- [ ] Directory Brute Forcing
-- [ ] Spidering The Site
+### 5. Manual
+- [ ] Use Wappalyzer to detect technology
 - [ ] Manually walking through the site
 - [ ] Loading up burp with every functionality
+- [ ] Testing Authentication ()

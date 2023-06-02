@@ -41,7 +41,13 @@ subzy run --targets subdomains.txt --hide_fails | tee subzy.txt
 # Data processing and generating URLs from the scrapped data
 cat subdomains.txt | httpx -silent -fc 404 | awk -F/ '{print $3}' | tee subdomains_live.txt
 
-# cat subdomains_live.txt | dnsgen - | massdns -r /usr/share/wordlists/resolvers.txt -t A -o S -w resolved.txt
+# Resolving the subdomains
+cat subdomains_live.txt | dnsgen - | massdns -r /usr/share/wordlists/resolvers.txt -t A -o S -w resolved.txt
+
+# Getting screenshots
+cat subdomains_live.txt | ~/Tools/aquatone/./aquatone -out aquatone.txt
+
+
 
 cat subdomains_live.txt | waybackurls | tee waybackurls_dead.txt
 cat waybackurls_dead.txt | httpx -silent -fc 404 | tee waybackurls.txt
@@ -50,9 +56,6 @@ rm -rf waybackurls_dead.txt
 # Gathering js files for source code analysis
 cat subdomains_live.txt | httpx -silent | subjs | tee subjs.txt
 cat waybackurls.txt | grep "\.js" | tee waybackurls_js.txt
-
-# Getting screenshots
-cat subdomains_live.txt | ~/Tools/aquatone/./aquatone -out aquatone.txt
 
 # Run paramspider for each domain in subdomains_live.txt
 cat subdomains_live.txt | xargs -I@ sh -c 'python ~/Tools/ParamSpider/paramspider.py -d @'

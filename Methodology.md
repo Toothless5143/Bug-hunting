@@ -1,7 +1,33 @@
-# Bug hunting methodology by Toothless:
+# Bug hunting checklist by Toothless:
 
-- [ ] Google Dorking
-- [ ] GitHub Recon
+### 1. Recon
+- [ ] Run Script
+
+### 2. Information Gathering
+- [ ] Google Dorks
+- [ ] Github
+- [ ] OSINT
+- [ ] Pastebin
+
+### 3. Scanning
+- [ ] Nmap Scan & Identify ports
+- [ ] Crawling the site
+- [ ] Check for robots.txt and other files
+- [ ] Directory Fuzzing (dirb, gobuster, ffuf)
+- [ ] URL Gathering (hakrawler, gau, waybackurls, paramspider)
+- [ ] Use Wappalyzer to detect technology
+
+### 4. Source Code Analysis
+- [ ] Gathering js files (subjs, waybackurls)
+- [ ] Finding API Keys, Infos (secretfinder, js miner)
+- [ ] Linkfinder
+
+### 5. 
+
+
+
+
+
 ---
 - [ ] Subdomain Enum
 - [ ] Subdomain Takeover(If any available)

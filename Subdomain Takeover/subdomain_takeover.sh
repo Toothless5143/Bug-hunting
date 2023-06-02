@@ -22,3 +22,6 @@ rm -rf wildcards_without_stars.txt
 
 # Combine all subdomain files, remove duplicates, and save the result to subdomains.txt
 cat * | sort -u | uniq | tee subdomains.txt
+
+# Identifying if any domain is vulnerable to subdomain takeover
+subzy run --targets subdomains.txt --hide_fails | tee subzy.txt

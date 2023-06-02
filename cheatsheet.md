@@ -5,4 +5,5 @@
 | `echo "domain.com" \| gau \| tee gau.txt` | gathering urls from a tool named gau |
 | `echo "domain.com" \| hakrawler \| hakrawler.txt` | gathering urls from a tool named hackrawler |
 | `cat  * \| sort -u \| uniq  \| tee unique.txt` | only keeping the unique outputs |
+| `cat file.txt \| wc -l` | knowing the number of lines that file's got |
 | `cat "file.txt" \| httpx -silent -fc 404 \| tee live_website.txt` | inputing a bunch of input and only keeping the live hosts/targets using httpx | 

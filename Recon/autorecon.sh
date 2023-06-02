@@ -42,7 +42,7 @@ subzy run --targets subdomains.txt --hide_fails | tee subzy.txt
 cat subdomains.txt | httpx -silent -fc 404 | awk -F/ '{print $3}' | tee subdomains_live.txt
 
 # Resolving the subdomains
-cat subdomains_live.txt | massdns -r /usr/share/wordlists/resolvers.txt -t A -o S -w resolved.txt
+# cat subdomains_live.txt | massdns -r /usr/share/wordlists/resolvers.txt -t A -o S -w resolved.txt
 
 # Getting screenshots
 cat subdomains_live.txt | ~/Tools/aquatone/./aquatone -out aquatone.txt

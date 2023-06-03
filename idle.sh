@@ -45,10 +45,10 @@ scraping_subdomains() {
 
   # Enumerate subdomains for each domain in wildcards_without_stars.txt
   while IFS= read -r domain; do
-  echo "Enumerating subdomains for domain: $domain"
-  file="${domain}_subdomains.txt"
-  subfinder -d "$domain" > "$file"
-  echo "Subdomains saved in $file"
+    echo "Enumerating subdomains for domain: $domain"
+    file="${domain}_subdomains.txt"
+    subfinder -d "$domain" > "$file"
+    echo "Subdomains saved in $file"
   done < wildcards_without_stars.txt
 
   # Remove the temporary wildcards_without_stars.txt file
@@ -83,14 +83,14 @@ resolving_ips() {
   cat subdomains_live.txt | massdns -r /usr/share/wordlists/resolvers.txt -t A -o S -w resolved.txt
 }
 
-# Function for scraping URLS
+# Function for scraping URLs
 url_scraping() {
   # Prompt for the domain name
   read -p "Enter the domain name: " domain
 
   # Creating a directory
-  mkdir $domain
-  cd $domain
+  mkdir "$domain"
+  cd "$domain"
 
   # Run waybackurls and store the output in waybackurls.txt
   echo "$domain" | waybackurls | tee waybackurls.txt
@@ -104,9 +104,45 @@ url_scraping() {
   # Combine all files into unique.txt, removing duplicate entries
   cat waybackurls.txt gau.txt hakrawler.txt | sort -u | tee unique.txt
 
-  # Run httpx to filter out live URLs and store the output in live_website.txt
+  # Run httpx to filter out live URLs and store the output in live_urls.txt
   cat unique.txt | httpx -silent -fc 404 > live_urls.txt
 
   # Remove unnecessary files
   rm waybackurls.txt gau.txt hakrawler.txt unique.txt
 }
+
+# Prompt user for function selection
+echo "Select a function to execute:"
+echo "1. Recon"
+echo "2. Scraping subdomains from all bug bounty programs"
+echo "3. JS scraping"
+echo "4. Subdomain Takeover"
+echo "5. Resolving IPs from subdomains"
+echo "6. URL scraping"
+
+read -p "Enter the function number: " choice
+
+# Execute the selected function based on the user's choice
+case $choice in
+  1)
+    recon
+    ;;
+  2)
+    scraping_subdomains
+    ;;
+  3)
+    js_scraping
+    ;;
+  4)
+    subdomain_takeover
+    ;;
+  5)
+    resolving_ips
+    ;;
+  6)
+    url_scraping
+    ;;
+  *)
+    echo "Invalid choice. Exiting..."
+    ;;
+esac

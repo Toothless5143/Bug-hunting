@@ -28,6 +28,9 @@ recon() {
   cat * | sort -u | uniq | tee subdomains.txt
   rm -rf subfinder.txt assetfinder.txt ctfr.txt amass.txt ffuf.txt
   
+  # Data processing and keeping live subdomains from the scrapped data
+  cat subdomains.txt | httpx -silent -fc 404 | awk -F/ '{print $3}' | tee subdomains_live.txt
+  
   # Getting screenshots
   cat subdomains_live.txt | ~/Tools/aquatone/./aquatone -out aquatone.txt
 }

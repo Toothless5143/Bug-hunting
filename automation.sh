@@ -8,16 +8,16 @@ mkdir $domain
 cd $domain
 
 # Run waybackurls and store the output in waybackurls.txt
-echo "$domain" | waybackurls | sort -u > waybackurls.txt
+echo "$domain" | waybackurls | tee waybackurls.txt
 
 # Run gau and append the output to gau.txt
-echo "$domain" | gau | sort -u >> gau.txt
+echo "$domain" | gau | tee gau.txt
 
 # Run hakrawler and append the output to hakrawler.txt
-echo "$domain" | hakrawler | sort -u >> hakrawler.txt
+echo "$domain" | hakrawler | tee hakrawler.txt
 
 # Combine all files into unique.txt, removing duplicate entries
-cat waybackurls.txt gau.txt hakrawler.txt | sort -u > unique.txt
+cat waybackurls.txt gau.txt hakrawler.txt | sort -u | tee unique.txt
 
 # Run httpx to filter out live URLs and store the output in live_website.txt
 cat unique.txt | httpx -silent -fc 404 > live_website.txt

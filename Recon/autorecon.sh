@@ -24,7 +24,7 @@ python ~/Tools/ctfr/ctfr.py -d "$domain" -o ctfr.txt
 # Run amass and ffuf commands in the background
 ( amass enum -d "$domain" > amass.txt ) &
 amass_pid=$!
-( ffuf -w /usr/share/wordlists/SecLists-master/Discovery/DNS/subdomains-top1million-110000.txt -u "http://FUZZ.$domain" -o fuzzing.txt && kill "$amass_pid" ) &
+( ffuf -w /usr/share/wordlists/SecLists-master/Discovery/DNS/subdomains-top1million-110000.txt -u "http://FUZZ.$domain" -mc 200 -o fuzzing.txt && kill "$amass_pid" ) &
 
 # Wait for ffuf to finish or handle Ctrl+C
 wait $! || handle_ctrl_c

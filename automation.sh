@@ -20,7 +20,7 @@ echo "$domain" | hakrawler | tee hakrawler.txt
 cat waybackurls.txt gau.txt hakrawler.txt | sort -u | tee unique.txt
 
 # Run httpx to filter out live URLs and store the output in live_website.txt
-cat unique.txt | httpx -silent -fc 404 > live_website.txt
+cat unique.txt | httpx -silent -fc 404 > live_urls.txt
 
 # Remove unnecessary files
 rm waybackurls.txt gau.txt hakrawler.txt unique.txt

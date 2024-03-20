@@ -32,7 +32,7 @@ recon() {
   cat subdomains.txt | httpx -silent -fc 404 | awk -F/ '{print $3}' | tee subdomains_live.txt
   
   # Getting screenshots
-  cat subdomains_live.txt | ~/Tools/aquatone/./aquatone -out aquatone.txt
+  cat subdomains_live.txt | ~/Tools/aquatone/./aquatone -out aquatone_output
 }
 
 # Function for Scraping subdomains from all bug bounty programs
